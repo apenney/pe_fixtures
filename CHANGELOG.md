@@ -1,3 +1,9 @@
+2014-08-07 Release 0.3.0
+
+Features:
+- Make both `on_pe_supported_platforms` and `on_pe_unsupported_platforms` take
+  'all' as the default for targets as this is easier for CI to set than nil.
+
 2014-08-07 Release 0.2.1
 
 Bugfixes:
