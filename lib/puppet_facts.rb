@@ -18,8 +18,8 @@ module PuppetFacts
     PuppetFacts.pe_platforms[pe_version]
   end
 
-  def on_pe_supported_platforms(targets=nil)
-    targets = Array(targets) if targets
+  def on_pe_supported_platforms(targets='all')
+    targets = Array(targets)
 
     # TODO This should filter based on set_pe_supported_platforms
     facts = PuppetFacts.pe_platform_facts
@@ -28,7 +28,7 @@ module PuppetFacts
       pe_semver = "#{pe_ver.sub(/^PE/,'')}.0"
       if SemVer[PuppetFacts.get_pe_requirement] === SemVer.new(pe_semver)
         sup_facts[pe_ver] = platforms.select do |platform, facts|
-          if targets
+          if targets != 'all'
             PuppetFacts.meta_supported_platforms.include?(platform) && targets.include?(platform)
           else
             PuppetFacts.meta_supported_platforms.include?(platform)
@@ -41,8 +41,8 @@ module PuppetFacts
 
   # We need the inverse, this is kind of ugly. I don't want to cram it into the
   # other method however.
-  def on_pe_unsupported_platforms(targets=nil)
-    targets = Array(targets) if targets
+  def on_pe_unsupported_platforms(targets='all')
+    targets = Array(targets)
 
     # TODO This should filter based on set_pe_supported_platforms
     facts = PuppetFacts.pe_platform_facts
@@ -51,7 +51,7 @@ module PuppetFacts
       pe_semver = "#{pe_ver.sub(/^PE/,'')}.0"
       if SemVer[PuppetFacts.get_pe_requirement] === SemVer.new(pe_semver)
         sup_facts[pe_ver] = platforms.select do |platform, facts|
-          if targets
+          if targets != 'all'
             ! PuppetFacts.meta_supported_platforms.include?(platform) && ! targets.include?(platform)
           else
             ! PuppetFacts.meta_supported_platforms.include?(platform)
