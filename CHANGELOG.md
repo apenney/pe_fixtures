@@ -1,3 +1,8 @@
+2014-08-07 Release 0.2.1
+
+Bugfixes:
+- Rename opensuse- to sles- in PE3.3.
+
 2014-08-07 Release 0.2.0
 
 Features:
