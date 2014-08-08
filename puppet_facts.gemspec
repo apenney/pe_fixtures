@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = PuppetFacts::Version::STRING
   s.authors     = ["Puppet Labs"]
   s.email       = ["modules-dept@puppetlabs.com"]
-  s.homepage    = "http://github.com/puppetlabs/puppet_facts"
+  s.homepage    = "https://github.com/apenney/puppet_facts"
   s.summary     = "Standard facts fixtures for PE and POSS platforms"
   s.description = "Contains facts from many PE and POSS systems"
   s.licenses    = 'Apache-2.0'
